@@ -1,0 +1,36 @@
+GitHub Copilot (VS / VS Code) + CLI
+=======================
+Claude (Sonnet 1X, Opus 15X, Haiku 0.33X)
+GPT (5.4 1X | 5.4 mini 0.33X)
+Grok fast code 1
+Gemini (Pro | Flash)
+Recommended: Claude Sonnet 4.6 1X | Gemini 3.1 Pro 1X => Use one to perform a task and another for review.
+=======================================================================
+AGENTS.md (Supported by Claude IDE & CLI + GitHub Copilot CLI
+.GitHub/copilot-instructions.md (Would reference AGENTS.md)
+We MAY NOT write long "Deterministic" wall of text in AGENTS.md (No Micro Management).
+https://github.com/bitfoundation/bitplatform/blob/develop/src/Templates/Boilerplate/Bit.Boilerplate/AGENTS.md
+=============================================
+vscode/mcp.json => Supported by GitHub Copilot (VS, VS Code)
+.mcp.json => Supported by GitHub Copilot CLI
+https://learn.microsoft.com/api/mcp Fetches samples & docs for Microsoft Products (C# 14, Azure Functions etc)
+https://mcp.deepwiki.com/mcp => Understands the ACTUAL source code of any open-source project (Mapperly, Hangfire etc)
+We MAY NOT install too many mcp tools, because LLM has to read all tools descriptions on start, confusing, time and money cosuming.
+Each MCP tool explains itself, but for DeepWiki, it would be a good idea to have something like this in AGENTS.md for libraries:
+For sso/identity related tasks, you MUST use the DeepWiki ask_question tool with repository DuendeSoftware/products to find relevant information.
+=======================================================================================================
+Agents
+https://github.com/bitfoundation/bitplatform/tree/develop/src/Templates/Boilerplate/Bit.Boilerplate/.github/agents
+https://github.com/bitfoundation/bitplatform/blob/develop/src/Templates/Boilerplate/Bit.Boilerplate/.github/agents/code-reviewer.agent.md
+This way, you keep AGENTS.md shorter, they would load on demand, only their description would be read at startup.
+=======================================================================================================
+https://awesome-copilot.github.com/skills/
+https://github.com/abubakarsiddik31/claude-skills-collection
+Skills can be installed globally or in project level => gh skills install anthropics/skills pdf
+Skills might have scripts, mostly python, so it would be a good idea to install python first + don't install a skill that you're not aware of its details
+They keep AGENTS.md shorter, they would load on demand, only their description would be read at startup.
+=======================================================================================================
+LSP => Language Server Protocol, allows GitHub Copilot CLI to understand code better, for example fidning references/usages of specific method without searching in texts/comments and parsing them!
+Question: How many refereces Does ToUpperCase of StringExtensions has? I wanna you to use lsp, not by searching the code!
+Uses Roslyn (C# Compiler) https://www.nuget.org/packages/roslyn-language-server/
+.github\lsp.json
