@@ -37,9 +37,6 @@ artifacts/
 .idea/
 *.sln.iml
 
-# VS Code
-.vscode/
-
 # Roslyn
 *.roslynanalyzer
 
